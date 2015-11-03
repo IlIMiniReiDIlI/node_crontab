@@ -1,0 +1,22 @@
+{
+  "name": "node_crontab",
+  "version": "1.0.0",
+  "description": "System cron manager",
+  "main": "Cron.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IlIMiniReiDIlI/node_crontab.git"
+  },
+  "keywords": [
+    "cron"
+  ],
+  "author": "IlIMiniReiDIlI",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IlIMiniReiDIlI/node_crontab/issues"
+  },
+  "homepage": "https://github.com/IlIMiniReiDIlI/node_crontab#readme"
+}
