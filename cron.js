@@ -3,24 +3,22 @@ var os = require('os');
 var child_process = require('child_process');
 var execSync = child_process.execSync;
 
-var Cron = function(){
+var Cron = function(){}
 
-	var addNew = function(stdout){
+var addNew = function(stdout){
 
-	  	var temp = os.tmpdir();
-	  	var file = exports();
-	  	fs.writeFileSync(temp +'/'+ file + '.txt', stdout);
-	  	execSync('crontab ' + temp + '/' + file + '.txt');
-		fs.unlinkSync(temp + '/' + file + '.txt');
+	var temp = os.tmpdir();
+	var file = exports();
+	fs.writeFileSync(temp +'/'+ file + '.txt', stdout);
+	execSync('crontab ' + temp + '/' + file + '.txt');
+	fs.unlinkSync(temp + '/' + file + '.txt');
 
-	}
+}
 
-	var exports = function(){
-		var time = new Date().getTime();
-		while (time == new Date().getTime());
-		return new Date().getTime().toString(36);
-	}
-
+var exports = function(){
+	var time = new Date().getTime();
+	while (time == new Date().getTime());
+	return new Date().getTime().toString(36);
 }
 
 Cron.prototype.get = function(){
@@ -56,15 +54,16 @@ Cron.prototype.add = function(minutes, hours, day, mounth, dayli, command){
 
 	var stdout = execSync('crontab -l');
 	stdout = stdout.toString();
-	stdout = (stdout ? stdout : '') + minutes + '\t' +\
-		hours + '\t' + day + '\t' + mounth + '\t' +\
+	stdout = (stdout ? stdout : '') + minutes + '\t' +
+		hours + '\t' + day + '\t' + mounth + '\t' +
 		dayli + '\t' + command + '\n';
 	addNew(stdout);
 
 }
 
 Cron.prototype.del = function(num){
-
+	
+	var num = num ? num : 0;
 	var stdout = execSync('crontab -l');
 	stdout = stdout.toString();
 	var result = stdout.split('\n');
@@ -74,4 +73,4 @@ Cron.prototype.del = function(num){
 
 }
 
-module.exports = Cron;
+module.exports = new Cron;
