@@ -2,7 +2,7 @@
   "name": "node_crontab",
   "version": "1.0.0",
   "description": "System cron manager",
-  "main": "Cron.js",
+  "main": "cron.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
